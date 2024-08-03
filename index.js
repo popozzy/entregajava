@@ -1,31 +1,70 @@
-var pregunta = confirm("¿Querés ver tu promedio?")
+function identificar() {
+    let nombres = [];
+    let nombre = prompt ("¿Cómo te llamás?");
+    nombres.push(nombre);
+    console.log(nombre)
+    let decision = confirm ("Hola "+ nombre + ", ¿quéres guardar tus notas?")
+        
+                if (decision) {
+                alert("Excelente") }
 
-if (pregunta == true) {
-    let nota1 = Number(prompt("Ingrese la nota de su primer evaluación"))
+                else {
+                alert("Lo vas a tener que hacer igual")}
+}
+identificar ();
 
-let nota2 = Number(prompt("Ingrese la nota de su segunda evaluación"))
-
-let nota3 = Number(prompt("Ingrese la nota de su tercer evaluación"));
-
-let promedio = ((nota1 + nota2 + nota3) /3);
-
-if (promedio < 7 >= 1) {
-    alert("¡Usted ha desaprobado!");
+function obtenerNotas(materia) {
+    let notas = [];
+    for (let i = 0; i < 3; i++) {
+        let nota = Number(prompt("Ingresa la nota " + (i + 1) + " de " + materia + ":"));
+        notas.push(nota);
+    }
+    console.log("Notas de " + materia + ":", notas);
+    return notas;
 }
 
-else if (promedio >= 7 <= 10) {
-    alert("¡Usted ha aprobado!");
+function calcularPromedio(notas) {
+    let suma = 0;
+    for (let i = 0; i < 3; i++) {
+        suma = suma + notas[i];
+    }
+    let promedio = suma / 3;
+    return promedio;
 }
 
-let array = [promedio];
-for(let i=1;i<=10;i++){
-    array.push(i);
-}
+function simulador() {
+    let continuar = confirm("¿Deseas ingresar las notas de Historia y Matemática?");
+    
+    if (continuar) {
 
-console.log(array);
-}
+        let notasHistoria = obtenerNotas("Historia");
 
-else if (pregunta != true) {
-    alert("Usted se lo pierde ah")
-}
+        let notasMatematica = obtenerNotas("Matemática");
 
+        let promedioHistoria = calcularPromedio(notasHistoria);
+        let promedioMatematica = calcularPromedio(notasMatematica);
+        
+        alert("El promedio de Historia es: " + promedioHistoria);
+        alert("El promedio de Matemática es: " + promedioMatematica);
+        
+        console.log("Promedio de Historia: " + promedioHistoria);
+        console.log("Promedio de Matemática: " + promedioMatematica);
+    } else {
+        alert("Inválido.");
+    }}
+
+simulador();
+
+function otravez() {
+    let volveraempezar = confirm("Desea otro alumno ingresar sus notas?");
+
+    if (volveraempezar) {
+        identificar();
+        simulador();
+    }
+
+    else {
+        alert("El proceso ha terminado")
+    } }
+
+otravez();
