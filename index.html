@@ -1,13 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evaluaciones</title>
-    <script src="./index.js" defer></script>
+    <title>Simulador de Notas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <h1>Promedio de alumnos</h1>
-    <h2>Lo que busco hacer en este simulador es facilitar sacar el promedio de notas de alumnos. La idea general es que sea una página para que los mismos alumnos puedan llevar su control de notas. El objetivo principal es que sirva para guardar las notas que se vayan sacando a lo largo de su carrera y que puedan agregar nuevas, para que tengan los promedios de las materias que cursen, y luego el promedio de la carrera.</h2>
+    <h1>Simulador de Notas <img src="imagenes/logo.jpg" alt="Logo" id="logo"> </h1>
+    <div id="identificar">
+        <label for="nombre">¿Cómo te llamás?</label>
+        <input type="text" id="nombre">
+        <button id="guardarNombre">Guardar nombre</button>
+    </div>
+    <div id="decision" style="display: none;">
+        <p id="saludo"></p>
+        <button id="guardarNotas">Guardar notas</button>
+    </div>
+    <div id="notas" style="display: none;">
+        <div>
+            <h3>Notas de Historia</h3>
+            <input type="number" id="notaHistoria1" placeholder="Nota 1">
+            <input type="number" id="notaHistoria2" placeholder="Nota 2">
+            <input type="number" id="notaHistoria3" placeholder="Nota 3">
+        </div>
+        <div>
+            <h3>Notas de Matemática</h3>
+            <input type="number" id="notaMatematica1" placeholder="Nota 1">
+            <input type="number" id="notaMatematica2" placeholder="Nota 2">
+            <input type="number" id="notaMatematica3" placeholder="Nota 3">
+        </div>
+        <button id="calcularPromedios">Calcular promedios</button>
+    </div>
+    <div id="resultados" style="display: none;">
+        <p id="promedioHistoria"></p>
+        <p id="promedioMatematica"></p>
+    </div>
+    <div id="otraVez" style="display: none;">
+        <button id="reiniciar">Otro alumno</button>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
